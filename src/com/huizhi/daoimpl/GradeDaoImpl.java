@@ -72,5 +72,15 @@ public class GradeDaoImpl extends BaseDao implements GradeDao {
 		return grade;
 	}
 
+	@Override
+	public int addGrades(List<Grade> list) {
+		String sql = "insert into grade (gid,name) values(?,?)";
+		int temp = 0;
+		for (Grade grade : list) {
+			temp = this.executeUpdate(sql, new Object[] {grade.getGid(),grade.getName()});
+		}
+		return temp;
+	}
+
 	
 }

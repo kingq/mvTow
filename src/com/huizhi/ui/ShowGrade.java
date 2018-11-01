@@ -2,6 +2,7 @@ package com.huizhi.ui;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,19 +15,27 @@ import com.huizhi.serviceimpl.GradeServiceImpl;
 
 public class ShowGrade {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		System.out.println("请输入年级编号");
-		int gid = input.nextInt();
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("请输入年级编号");
+//		int gid = input.nextInt();
 //		System.out.println("请输入年级名称");
 //		String name= input.next();
 //		
-//		Grade grade = new Grade(gid, name);
+		Grade grade = new Grade(5, "武");
+		Grade grade1 = new Grade(6, "六");
+		Grade grade2 = new Grade(7, "期");
+		
+		List<Grade> list = new ArrayList<Grade>();
+		list.add(grade);
+		list.add(grade1);
+		list.add(grade2);
 		
 		GradeDao gradeDao = new GradeDaoImpl();
 		
-		Grade grade = gradeDao.getGradeByGid(gid);
-		System.out.println("年级编号\t年级名称");
-		System.out.println(grade.getGid()+"\t"+grade.getName());
+		gradeDao.addGrades(list);
+//		Grade grade = gradeDao.getGradeByGid(gid);
+//		System.out.println("年级编号\t年级名称");
+//		System.out.println(grade.getGid()+"\t"+grade.getName());
 		
 //		List<Grade> list = gradeDao.getAllGrade();
 //		System.out.println("年级编号\t年级名称");
