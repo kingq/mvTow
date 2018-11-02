@@ -12,4 +12,5 @@ public interface GradeDao {
 	public int updateGrade(Grade grade);
 	public int deleteGrade(int gid);
 	public Grade getGradeByGid(int gid);
+	
 }
